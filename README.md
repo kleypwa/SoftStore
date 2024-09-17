@@ -12,7 +12,8 @@ Soft Store Project is my pet project for Epam Upskill program.
 	Creates toys and saves them in their store.
 	Selects the toys they need from the Catalog and puts them in their cart for further purchases.
 	
-Here some mokups:
+<h3 align="center">Here some mokups:</h3>
+
 ![Login page](https://github.com/kleypwa/SoftStore/blob/main/mokups/1.PNG)
 ![Signup page](https://github.com/kleypwa/SoftStore/blob/main/mokups/8.PNG)
 ![Notes page](https://github.com/kleypwa/SoftStore/blob/main/mokups/2.PNG)
