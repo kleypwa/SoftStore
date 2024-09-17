@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="./css/signup.css">
+</head>
+<body>
+<section>
+    <form id="signupForm">
+        <div class="inputbox">
+            <input type="text" id="username" name="username" required />
+            <label for="username">Username</label>
+        </div>
+        <div class="inputbox">
+            <input type="email" id="email" name="email" required />
+            <label for="email">Email</label>
+        </div>
+        <div class="inputbox">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input type="password" id="password" name="password" required />
+            <label for="password">Password</label>
+        </div>
+        <div class="inputbox">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input type="password" id="passwordcon" name="passwordcon" required />
+            <label for="passwordcon">Confirm Password</label>
+        </div>
+        <button id="submit" type="button">Sign Up</button>
+        <div class="register">
+            <p>Already have an account? <a href="./login.html">Log In</a></p>
+        </div>
+    </form>
+</section>
+
+<script>
+    document.getElementById("submit").addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('passwordcon').value;
+        const email = document.getElementById('email').value;
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
+        }
+
+        const data = { username, password, email };
+        fetch('/req/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(response => {
+            if (response.ok) {
+                alert("Registration successful!");
+            } else {
+                alert("Registration failed!");
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert("There was an error submitting your data.");
+        });
+    });
+</script>
+</body>
+</html>

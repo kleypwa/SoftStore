@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soft Store</title>
+    <link rel="stylesheet" href="./css/home.css">
+</head>
+<body>
+<header>
+    <nav class="menu">
+        <a href="./home.html" class="menu-item">Notes</a>
+        <a href="./catalog.html" class="menu-item">Catalog</a>
+        <a href="./markets.html" class="menu-item">Markets</a>
+        <a href="./bucket.html" class="menu-item">My Bucket</a>
+        <a href="./cabinet.html" class="menu-item">Cabinet</a>
+        <div class="auth-box">
+            <a href="./login.html" class="auth-item">Login</a>
+            <a href="./signup.html" class="auth-item">Signup</a>
+        </div>
+    </nav>
+</header>
+<div id="scroll-list" class="scrollable-list">
+    <div id="newspaper-container"></div>
+    <div id="note-container" style="display: flex; align-items: center;">
+        <input id="note-input" type="text" placeholder="Enter your note" style="flex: 1; padding: 8px; margin-right: 10px;">
+        <button id="publish-btn" style="padding: 8px 12px; cursor: pointer;">Publish</button>
+    </div>
+</div>
+<script>
+    document.getElementById('publish-btn').addEventListener('click', function() {
+    const noteContent = document.getElementById('note-input').value;
+
+    if (!noteContent.trim()) {
+        alert("Please enter a note.");
+        return;
+    }
+
+    fetch('/api/notes/add', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ content: noteContent })
+    })
+    .then(data => {
+        document.getElementById('note-input').value = "";
+        window.location.href = window.location.href;
+    })
+});
+</script>
+
+
+<footer>
+    <p>Soft Store, 2024</p>
+</footer>
+
+<script src="./js/animations.js"></script>
+</body>
+</html>

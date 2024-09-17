@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soft Store</title>
+    <link rel="stylesheet" href="./css/toys.css">
+</head>
+<body>
+<header>
+    <nav class="menu">
+        <a href="./home.html" class="menu-item">Notes</a>
+        <a href="./catalog.html" class="menu-item">Catalog</a>
+        <a href="./markets.html" class="menu-item">Markets</a>
+        <a href="./bucket.html" class="menu-item">My Bucket</a>
+        <a href="./cabinet.html" class="menu-item">Cabinet</a>
+        <div class="auth-box">
+            <a href="./login.html" class="auth-item">Login</a>
+            <a href="./signup.html" class="auth-item">Signup</a>
+        </div>
+    </nav>
+</header>
+
+<div class="content">
+    <div id="toy-list" class="scrollable-list"></div>
+
+    <aside class="filter-menu">
+        <h2>Search by:</h2>
+        <form id="filter-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Toy name">
+
+            <label for="market-name">Market Name:</label>
+            <input type="text" id="market-name" name="market-name" placeholder="Market name">
+
+            <label for="min-cost">Min Cost:</label>
+            <input type="number" id="min-cost" name="min-cost" placeholder="Min cost">
+
+            <label for="max-cost">Max Cost:</label>
+            <input type="number" id="max-cost" name="max-cost" placeholder="Max cost">
+
+            <button type="button" onclick="applyFilters()">Search</button>
+        </form>
+    </aside>
+</div>
+
+<footer>
+    <p>Soft Store, 2024</p>
+</footer>
+
+<script src="./js/toys.js"></script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+}
+
+header {
+    background-color: #add8e6;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffb6c1;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.menu-item {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.1);
+}
+
+.auth-box {
+    margin-left: auto;
+    display: flex;
+}
+
+.auth-item {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: transform 0.3s ease;
+}
+
+.auth-item:hover {
+    transform: scale(1.1);
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #ffb6c1;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 0px;
+    margin-top: auto; 
+}
+
+.scrollable-list {
+    width: 70%;
+    height: 500px;
+    overflow-y: auto;
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.filter-menu {
+    width: 30%;
+    padding: 20px;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+}
+
+.filter-menu h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.filter-menu label {
+    font-size: 1rem;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.filter-menu input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.filter-menu button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.filter-menu button:hover {
+    background-color: #2980b9;
+}
+
+.toy-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.toy-item-info h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.toy-item-info p {
+    margin: 5px 0;
+}
+
+.toy-item-info .cost {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.toy-item-info a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.toy-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.toy-quantity {
+    font-size: 1.1rem;
+    color: #ff6347;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.add-to-bucket-button {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 16px;
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-bucket-button:hover {
+    background-color: #218838;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    height: calc(100% - 80px); 
+}
+
+.toy-item {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+}
+
+.quantity-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px; 
+    height: 30px; 
+    background-color: #28a745; 
+    color: white;
+    border-radius: 5px; 
+    font-weight: bold;
+    font-size: 16px; 
+    text-align: center;
+    margin-left: 0px;
+}
+
+.toy-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px; 
+}
+.quantity-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 30px; 
+    height: 30px; 
+    margin: 0 5px; 
+    border-radius: 5px;
+}
+
+.quantity-btn:hover {
+    background-color: #2980b9;
+}
+.toy-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
