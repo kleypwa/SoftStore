@@ -1,0 +1,101 @@
+/* Общие стили для страницы */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #e0bbf4, #ff9a9e); /* Градиентный фон от розового к голубому */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Стили для секции */
+section {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  box-sizing: border-box; /* Включает паддинг и границы в общую ширину */
+}
+
+/* Заголовок формы */
+h1 {
+  color: #ff6f61; /* Розовый цвет заголовка */
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Стили для блоков ввода */
+.inputbox {
+  position: relative;
+  margin-bottom: 20px;
+  box-sizing: border-box; /* Включает паддинг и границы в общую ширину */
+}
+
+/* Поля ввода */
+.inputbox input {
+  width: 100%;
+  padding: 10px 10px 10px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+  box-sizing: border-box; /* Включает паддинг и границы в общую ширину */
+}
+
+/* Подписи под полями ввода */
+.inputbox label {
+  position: absolute;
+  top: 50%;
+  left: 15px; /* Немного скорректировано, чтобы избежать наложения */
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #aaa;
+  transition: 0.3s;
+}
+
+.inputbox input:focus + label,
+.inputbox input:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 0;
+  font-size: 12px;
+  color: #ff6f61;
+}
+
+/* Кнопка входа */
+button {
+  background: #ff6f61; /* Розовая кнопка */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+/* При наведении на кнопку */
+button:hover {
+  background: #ff3d3d; /* Более темный розовый при наведении */
+}
+
+/* Ссылки */
+a {
+  color: #ff6f61; /* Розовый цвет ссылок */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Стили для текста внизу формы */
+.register p {
+  text-align: center;
+  color: #333;
+}

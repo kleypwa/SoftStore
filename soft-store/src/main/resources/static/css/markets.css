@@ -1,0 +1,250 @@
+/* Ensure the body takes up the full viewport height and uses flex layout */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content area should grow to fill the available space */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styles */
+header {
+    background-color: #add8e6;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation menu styles */
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffb6c1;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Menu item styles */
+.menu-item {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.1);
+}
+
+/* Auth box styles */
+.auth-box {
+    margin-left: auto;
+    display: flex;
+}
+
+/* Auth item styles */
+.auth-item {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: transform 0.3s ease;
+}
+
+.auth-item:hover {
+    transform: scale(1.1);
+}
+
+/* Footer sticks to the bottom of the page */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #ffb6c1;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 0px;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+/* Scrollable div styles */
+.scrollable-list {
+    width: 70%;
+    height: 500px;
+    overflow-y: auto;
+    background-color: #f2f2f2;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Filter menu styles */
+.filter-menu {
+    width: 30%;
+    padding: 20px;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+}
+
+.filter-menu h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.filter-menu label {
+    font-size: 1rem;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.filter-menu input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.filter-menu button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.filter-menu button:hover {
+    background-color: #2980b9;
+}
+
+/* Base styles for market items */
+.market-item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    width: 100%;
+    max-width: 600px;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Hover effect for market items */
+.market-item:hover {
+    background-color: #f0f8ff; /* Light color change on hover */
+}
+
+
+/* Toy info container styles */
+.market-item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Toy name styles */
+.market-item-info h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Toy description and cost styles */
+.market-item-info p {
+    margin: 5px 0;
+}
+
+
+/* Toy image styles */
+.toy-image {
+    width: 150px; /* Fixed width */
+    height: 150px; /* Fixed height */
+    object-fit: cover; /* Ensure the image fits within the area */
+    margin-right: 20px;
+}
+
+/* Toy item styles */
+.toy-item {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+/* Toy info container with a fixed width */
+.toy-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Takes up the remaining space */
+    max-width: 400px; /* Ensure consistent width */
+    box-sizing: border-box;
+}
+
+
+/* Toy name styles */
+.toy-item-info h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* Toy description and cost styles */
+.toy-item-info p {
+    margin: 5px 0;
+}
+
+
+/* Style for no toys message */
+.no-toys-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* Initially hide the toys list */
+.hidden {
+    display: none;
+}
+
+/* Flex container for the markets and toys lists */
+.content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    height: calc(100% - 80px); /* Adjust height considering the header and footer */
+}
+
+/* Markets list styles */
+#markets-list {
+    width: 50%;
+    height: 100%;
+    border-right: 1px solid #ccc;
+    overflow-y: auto; /* Enables scrolling */
+    background-color: #fff;
+}
+
+/* Toys list styles */
+#toys-list {
+    width: 50%;
+    height: 100%;
+    border-left: 1px solid #ccc;
+    background-color: #fff;
+    overflow-y: auto; /* Enables scrolling */
+    position: relative;
+}

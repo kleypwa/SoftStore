@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soft Store</title>
+    <link rel="stylesheet" href="css/cabinet.css">
+</head>
+<body>
+<header>
+    <nav class="menu">
+        <a href="/home" class="menu-item">Notes</a>
+        <a href="/catalog" class="menu-item">Catalog</a>
+        <a href="/markets" class="menu-item">Markets</a>
+        <a href="/bucket" class="menu-item">My Bucket</a>
+        <a href="/cabinet" class="menu-item">Cabinet</a>
+        <div class="auth-box">
+            <a href="/login" class="auth-item">Login</a>
+            <a href="/req/signup" class="auth-item">Signup</a>
+        </div>
+    </nav>
+</header>
+
+<!-- New buttons -->
+<section class="actions">
+    <button id="addToyButton">Add new toy</button>
+    <button id="addMarketButton">Add new market</button>
+</section>
+
+<!-- Dynamic form for adding a new toy -->
+<section id="toyFormSection" class="hidden">
+    <form id="addToyForm">
+        <label for="name">Toy Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea><br>
+
+        <label for="cost">Cost:</label>
+        <input type="number" id="cost" name="cost" required><br>
+
+        <label for="market">Market:</label>
+        <select id="market" name="market" required>
+            <!-- Options will be dynamically filled by JS -->
+        </select><br>
+
+        <button type="submit">Add Toy</button>
+    </form>
+</section>
+
+<!-- Dynamic form for adding a new market -->
+<section id="marketFormSection" class="hidden2">
+    <form id="addMarketForm">
+        <label for="marketName">Market Name:</label>
+        <input type="text" id="marketName" name="marketName" required><br>
+
+        <label for="marketDescription">Market Description:</label>
+        <textarea id="marketDescription" name="marketDescription" required></textarea><br>
+
+        <button type="submit">Add Market</button>
+    </form>
+</section>
+
+<footer>
+    <p>Soft Store, 2024</p>
+</footer>
+
+<script src="js/addToy.js"></script>
+</body>
+</html>

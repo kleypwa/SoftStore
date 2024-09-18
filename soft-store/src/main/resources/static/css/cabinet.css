@@ -1,0 +1,135 @@
+.actions {
+    text-align: center;
+    margin: 20px;
+}
+
+.hidden2 {
+    display: none;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+
+
+
+/* Apply box-sizing for consistent sizing */
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width */
+}
+
+form {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f0f8ff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-width: 400px;
+    box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+button {
+    font-size: 16px;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #add8e6;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffb6c1;
+}
+
+
+
+
+/* Make sure the body takes up the full viewport height */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content should grow to fill the available space */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    flex: 1;
+}
+
+header {
+    background-color: #add8e6;
+    padding: 10px 0;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ffb6c1;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.menu-item {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: transform 0.3s ease;
+}
+
+.menu-item:hover {
+    transform: scale(1.1);
+}
+
+.auth-box {
+    margin-left: auto;
+    display: flex;
+}
+
+.auth-item {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: transform 0.3s ease;
+}
+
+.auth-item:hover {
+    transform: scale(1.1);
+}
+
+/* Footer sticks to the bottom of the page */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #ffb6c1;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 0px;
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+
