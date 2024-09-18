@@ -16,20 +16,18 @@
         <a href="/cabinet" class="menu-item">Cabinet</a>
         <div class="auth-box">
             <a href="/login" class="auth-item">Login</a>
-            <a href="/req/signup" class="auth-item">Signup</a>
+            <a href="/signup" class="auth-item">Signup</a>
         </div>
     </nav>
 </header>
 
-<!-- New buttons -->
 <section class="actions">
     <button id="addToyButton">Add new toy</button>
     <button id="addMarketButton">Add new market</button>
 </section>
 
-<!-- Dynamic form for adding a new toy -->
 <section id="toyFormSection" class="hidden">
-    <form id="addToyForm">
+    <form id="addToyForm" enctype="multipart/form-data">
         <label for="name">Toy Name:</label>
         <input type="text" id="name" name="name" required><br>
 
@@ -41,14 +39,15 @@
 
         <label for="market">Market:</label>
         <select id="market" name="market" required>
-            <!-- Options will be dynamically filled by JS -->
         </select><br>
+
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image" accept="image/*"><br>
 
         <button type="submit">Add Toy</button>
     </form>
 </section>
 
-<!-- Dynamic form for adding a new market -->
 <section id="marketFormSection" class="hidden2">
     <form id="addMarketForm">
         <label for="marketName">Market Name:</label>

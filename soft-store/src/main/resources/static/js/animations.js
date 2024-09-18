@@ -1,4 +1,3 @@
-// Prevent menu items from overlapping when hovered
 document.querySelectorAll('.menu-item, .auth-item').forEach(item => {
     item.addEventListener('mouseover', function() {
         this.style.transform = 'scale(1.1)';
@@ -18,13 +17,11 @@ function fetchNewspapers() {
         .then(response => response.json())
         .then(data => {
             const container = document.getElementById('newspaper-container');
-            container.innerHTML = ''; // Clear the container
+            container.innerHTML = '';
             data.forEach(newspaper => {
                 const div = document.createElement('div');
                 div.classList.add('newspaper-item');
                 div.innerHTML = `<p>${newspaper.content}</p>`;
-
-                // Fetch the author details
                 fetch(`/api/appusers/${newspaper.author}`)
                     .then(response => response.json())
                     .then(authorData => {
@@ -32,7 +29,7 @@ function fetchNewspapers() {
                         authorP.style.fontStyle = 'italic';
                         authorP.style.fontSize = '0.8em';
                         authorP.innerText = `— ${authorData.username}.`;
-                        div.appendChild(authorP); // Append the author below the content
+                        div.appendChild(authorP);
                     })
                     .catch(error => {
                         console.error('Error fetching author:', error);

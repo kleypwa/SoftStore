@@ -11,18 +11,11 @@
     display: none;
 }
 
-
-
-
-
-
-
-/* Apply box-sizing for consistent sizing */
 input, textarea, select {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    box-sizing: border-box; /* Ensures padding and border are included in the element's total width */
+    box-sizing: border-box;
 }
 
 form {
@@ -32,7 +25,7 @@ form {
     border: 1px solid #ccc;
     border-radius: 10px;
     max-width: 400px;
-    box-sizing: border-box; /* Ensures padding is included in the width */
+    box-sizing: border-box;
 }
 
 label {
@@ -55,10 +48,6 @@ button:hover {
     background-color: #ffb6c1;
 }
 
-
-
-
-/* Make sure the body takes up the full viewport height */
 html, body {
     height: 100%;
     margin: 0;
@@ -66,7 +55,6 @@ html, body {
     flex-direction: column;
 }
 
-/* Main content should grow to fill the available space */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f8ff;
@@ -120,7 +108,6 @@ header {
     transform: scale(1.1);
 }
 
-/* Footer sticks to the bottom of the page */
 footer {
     text-align: center;
     padding: 10px;
@@ -129,7 +116,7 @@ footer {
     font-size: 16px;
     font-weight: bold;
     border-radius: 0px;
-    margin-top: auto; /* Pushes footer to the bottom */
+    margin-top: auto;
 }
 
 

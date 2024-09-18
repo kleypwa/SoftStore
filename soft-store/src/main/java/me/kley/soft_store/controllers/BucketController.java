@@ -1,6 +1,5 @@
 package me.kley.soft_store.controllers;
 
-
 import me.kley.soft_store.dto.ToyWithCountDTO;
 import me.kley.soft_store.models.AppUser;
 import me.kley.soft_store.models.Bucket;
@@ -14,10 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
@@ -40,6 +36,7 @@ public class BucketController {
         Optional<Bucket> bucket = bucketService.findByAppUserId(currentUser.getId());
 
         return bucket.map(b -> b.getBucketToys().stream()
+                        .sorted(Comparator.comparing(BucketToy::getId))
                         .map(bucketToy -> new ToyWithCountDTO(bucketToy.getToy(), bucketToy.getCount()))  // Извлекаем игрушки и количество
                         .collect(Collectors.toList()))
                 .orElse(new ArrayList<>());
@@ -93,7 +90,7 @@ public class BucketController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteBucketToy(@PathVariable Long id) {
-        Optional<BucketToy> bucketToyOptional = bucketService.findByIdBucketToy(id);
+        Optional<BucketToy> bucketToyOptional = bucketService.findByToyIdInBucketToy(id);
 
         if (bucketToyOptional.isPresent()) {
             bucketService.deleteBucketToy(bucketToyOptional.get());

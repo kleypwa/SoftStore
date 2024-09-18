@@ -6,8 +6,8 @@ import me.kley.soft_store.models.BucketToy;
 import me.kley.soft_store.repository.BucketRepository;
 import me.kley.soft_store.repository.BucketToyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
 import java.util.Optional;
 
 @Service
@@ -22,17 +22,18 @@ public class BucketService {
     }
 
     public BucketToy updateToyCount(Long toyId, int count) {
-        BucketToy bucketToy = bucketToyRepository.findByToyId(toyId);
-        bucketToy.setCount(count);
-        return bucketToyRepository.save(bucketToy);
+        Optional<BucketToy> bucketToyOptional = bucketToyRepository.findByToyId(toyId);
+        if (bucketToyOptional.isPresent()) {
+            BucketToy bucketToy = bucketToyOptional.get();
+            bucketToy.setCount(count);
+            return bucketToyRepository.save(bucketToy);
+        } else {
+            throw new UsernameNotFoundException("");
+        }
     }
 
     public void deleteBucketToy(BucketToy bucketToy) {
         bucketToyRepository.delete(bucketToy);
-    }
-
-    public Optional<BucketToy> findByIdBucketToy(Long id) {
-        return bucketToyRepository.findById(id);
     }
 
     public Bucket saveBucket(Bucket bucket) {
@@ -45,5 +46,9 @@ public class BucketService {
 
     public Optional<Bucket> findByAppUserId(Long id) {
         return bucketRepository.findByAppUserId(id);
+    }
+
+    public Optional<BucketToy> findByToyIdInBucketToy(Long toyId) {
+        return bucketToyRepository.findByToyId(toyId);
     }
 }

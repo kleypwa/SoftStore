@@ -22,6 +22,7 @@ public class Bucket {
     private AppUser appUser;
 
     @OneToMany(mappedBy = "bucket", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
     private Set<BucketToy> bucketToys = new HashSet<>();
 
     public Long getId() {

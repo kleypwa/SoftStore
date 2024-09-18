@@ -1,4 +1,3 @@
-/* Ensure the body takes up the full viewport height and uses flex layout */
 html, body {
     height: 100%;
     margin: 0;
@@ -6,7 +5,6 @@ html, body {
     flex-direction: column;
 }
 
-/* Main content area should grow to fill the available space */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f8ff;
@@ -16,7 +14,6 @@ body {
     flex-direction: column;
 }
 
-/* Header styles */
 header {
     background-color: #add8e6;
     padding: 10px 0;
@@ -24,7 +21,6 @@ header {
     flex-direction: column;
 }
 
-/* Navigation menu styles */
 .menu {
     display: flex;
     justify-content: space-around;
@@ -34,7 +30,6 @@ header {
     border-radius: 10px;
 }
 
-/* Menu item styles */
 .menu-item {
     color: #fff;
     text-decoration: none;
@@ -48,13 +43,11 @@ header {
     transform: scale(1.1);
 }
 
-/* Auth box styles */
 .auth-box {
     margin-left: auto;
     display: flex;
 }
 
-/* Auth item styles */
 .auth-item {
     color: #fff;
     text-decoration: none;
@@ -69,7 +62,6 @@ header {
     transform: scale(1.1);
 }
 
-/* Footer sticks to the bottom of the page */
 footer {
     text-align: center;
     padding: 10px;
@@ -78,10 +70,9 @@ footer {
     font-size: 16px;
     font-weight: bold;
     border-radius: 0px;
-    margin-top: auto; /* Pushes footer to the bottom */
+    margin-top: auto;
 }
 
-/* Scrollable div styles */
 .scrollable-list {
     width: 70%;
     height: 500px;
@@ -91,7 +82,6 @@ footer {
     box-sizing: border-box;
 }
 
-/* Filter menu styles */
 .filter-menu {
     width: 30%;
     padding: 20px;
@@ -130,7 +120,6 @@ footer {
     background-color: #2980b9;
 }
 
-/* Base styles for market items */
 .market-item {
     display: flex;
     flex-direction: row;
@@ -139,42 +128,34 @@ footer {
     padding: 10px 0;
     width: 100%;
     max-width: 600px;
-    transition: background-color 0.3s ease; /* Smooth transition for background color */
+    transition: background-color 0.3s ease;
 }
 
-/* Hover effect for market items */
 .market-item:hover {
-    background-color: #f0f8ff; /* Light color change on hover */
+    background-color: #f0f8ff;
 }
 
-
-/* Toy info container styles */
 .market-item-info {
     display: flex;
     flex-direction: column;
 }
 
-/* Toy name styles */
 .market-item-info h3 {
     font-size: 1.5rem;
     margin: 0;
 }
 
-/* Toy description and cost styles */
 .market-item-info p {
     margin: 5px 0;
 }
 
-
-/* Toy image styles */
 .toy-image {
-    width: 150px; /* Fixed width */
-    height: 150px; /* Fixed height */
-    object-fit: cover; /* Ensure the image fits within the area */
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
     margin-right: 20px;
 }
 
-/* Toy item styles */
 .toy-item {
     display: flex;
     flex-direction: row;
@@ -186,30 +167,24 @@ footer {
     box-sizing: border-box;
 }
 
-/* Toy info container with a fixed width */
 .toy-item-info {
     flex: 1;
     display: flex;
     flex-direction: column;
-    width: 100%; /* Takes up the remaining space */
-    max-width: 400px; /* Ensure consistent width */
+    width: 100%;
+    max-width: 400px;
     box-sizing: border-box;
 }
 
-
-/* Toy name styles */
 .toy-item-info h3 {
     font-size: 1.5rem;
     margin: 0;
 }
 
-/* Toy description and cost styles */
 .toy-item-info p {
     margin: 5px 0;
 }
 
-
-/* Style for no toys message */
 .no-toys-message {
     text-align: center;
     font-size: 1.2rem;
@@ -217,34 +192,30 @@ footer {
     margin-top: 20px;
 }
 
-/* Initially hide the toys list */
 .hidden {
     display: none;
 }
 
-/* Flex container for the markets and toys lists */
 .content {
     display: flex;
     flex: 1;
     overflow: hidden;
-    height: calc(100% - 80px); /* Adjust height considering the header and footer */
+    height: calc(100% - 80px);
 }
 
-/* Markets list styles */
 #markets-list {
     width: 50%;
     height: 100%;
     border-right: 1px solid #ccc;
-    overflow-y: auto; /* Enables scrolling */
+    overflow-y: auto;
     background-color: #fff;
 }
 
-/* Toys list styles */
 #toys-list {
     width: 50%;
     height: 100%;
     border-left: 1px solid #ccc;
     background-color: #fff;
-    overflow-y: auto; /* Enables scrolling */
+    overflow-y: auto;
     position: relative;
 }

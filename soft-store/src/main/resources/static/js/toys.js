@@ -1,3 +1,13 @@
+document.querySelectorAll('.menu-item, .auth-item').forEach(item => {
+    item.addEventListener('mouseover', function() {
+        this.style.transform = 'scale(1.1)';
+    });
+
+    item.addEventListener('mouseout', function() {
+        this.style.transform = 'scale(1)';
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function () {
     fetchToys();
 });
@@ -8,7 +18,7 @@ function fetchToys(queryParams = '') {
         .then(response => response.json())
         .then(toys => {
             const toyListDiv = document.getElementById('toy-list');
-            toyListDiv.innerHTML = ''; // Clear the list before displaying new items
+            toyListDiv.innerHTML = '';
             toys.forEach(toy => {
                 const toyDiv = createToyDiv(toy);
                 toyListDiv.appendChild(toyDiv);
@@ -44,7 +54,7 @@ function createToyDiv(toy) {
     const addToBucketButton = document.createElement('button');
     addToBucketButton.textContent = 'Add to Bucket';
     addToBucketButton.classList.add('add-to-bucket-button');
-    addToBucketButton.addEventListener('click', () => addToBucket(toy.id));
+    addToBucketButton.addEventListener('click', () => addToBucket(toy.id, addToBucketButton)); // Передаем кнопку
 
     infoDiv.appendChild(name);
     infoDiv.appendChild(description);
@@ -58,7 +68,7 @@ function createToyDiv(toy) {
     return toyDiv;
 }
 
-function addToBucket(toyId) {
+function addToBucket(toyId, button) {
     const url = `/api/bucket/add/${toyId}`;
 
     fetch(url, {
@@ -68,9 +78,15 @@ function addToBucket(toyId) {
         }
     })
     .then(response => {
+        if (response.ok) {
+            button.textContent = 'Added';
+            button.disabled = true;
+            button.classList.add('added-to-bucket');
+        }
         return response.json();
     });
 }
+
 
 function applyFilters() {
     const name = document.getElementById('name').value;

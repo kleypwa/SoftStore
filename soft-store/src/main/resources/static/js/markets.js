@@ -1,3 +1,13 @@
+document.querySelectorAll('.menu-item, .auth-item').forEach(item => {
+    item.addEventListener('mouseover', function() {
+        this.style.transform = 'scale(1.1)';
+    });
+
+    item.addEventListener('mouseout', function() {
+        this.style.transform = 'scale(1)';
+    });
+});
+
 document.addEventListener('DOMContentLoaded', function () {
     fetchMarkets();
 });
@@ -10,7 +20,7 @@ function fetchMarkets() {
         .then(response => response.json())
         .then(markets => {
             const marketsListDiv = document.getElementById('markets-list');
-            marketsListDiv.innerHTML = ''; // Clear the list before displaying new items
+            marketsListDiv.innerHTML = '';
             markets.forEach(market => {
                 const marketDiv = createMarketDiv(market);
                 marketsListDiv.appendChild(marketDiv);
@@ -41,7 +51,6 @@ function createMarketDiv(market) {
 
     marketDiv.addEventListener('click', function() {
         if (currentMarketId === market.id) {
-            // Toggle visibility of the toys list
             document.getElementById('toys-list').classList.toggle('hidden');
         } else {
             currentMarketId = market.id;
@@ -59,7 +68,7 @@ function displayToys(marketId) {
         .then(response => response.json())
         .then(toys => {
             const toysListDiv = document.getElementById('toys-list');
-            toysListDiv.innerHTML = ''; // Clear the list before displaying new items
+            toysListDiv.innerHTML = '';
 
             if (toys.length === 0) {
                 const message = document.createElement('p');
@@ -78,48 +87,36 @@ function displayToys(marketId) {
         });
 }
 
-
-
 function createToyDiv(toy) {
-    // Create container div for each toy
     const toyDiv = document.createElement('div');
     toyDiv.classList.add('toy-item');
 
-    // Toy image
     const img = document.createElement('img');
     img.src = `/images/${toy.image || 'default.png'}`;
     img.alt = toy.name;
     img.classList.add('toy-image');
 
-    // Toy info container
     const infoDiv = document.createElement('div');
     infoDiv.classList.add('toy-item-info');
 
-    // Toy name
     const name = document.createElement('h3');
-    name.textContent = toy.name || 'No Name'; // Fallback if name is undefined
+    name.textContent = toy.name || 'No Name';
 
-    // Toy description
     const description = document.createElement('p');
-    description.textContent = toy.description || 'No Description'; // Fallback if description is undefined
+    description.textContent = toy.description || 'No Description';
 
-    // Toy cost
     const cost = document.createElement('p');
     cost.classList.add('cost');
-    cost.textContent = `Cost: $${toy.cost || 0}`; // Fallback if cost is undefined
-
-    // Market link
+    cost.textContent = `Cost: $${toy.cost || 0}`;
     const marketLink = document.createElement('a');
-    marketLink.href = `#`;  // Placeholder for now
-    marketLink.textContent = `Shop at: ${toy.market?.name || 'Unknown Market'}`; // Optional chaining and fallback
+    marketLink.href = `#`;
+    marketLink.textContent = `Shop at: ${toy.market?.name || 'Unknown Market'}`;
 
-    // Append elements to infoDiv
     infoDiv.appendChild(name);
     infoDiv.appendChild(description);
     infoDiv.appendChild(cost);
     infoDiv.appendChild(marketLink);
 
-    // Append img and infoDiv to toyDiv
     toyDiv.appendChild(img);
     toyDiv.appendChild(infoDiv);
 
