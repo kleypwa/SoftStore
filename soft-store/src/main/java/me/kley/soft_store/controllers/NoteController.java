@@ -15,15 +15,7 @@ import java.util.List;
 @RequestMapping("/api/notes")
 public class NoteController {
     @Autowired
-    private final NoteService noteService;
-
-    @Autowired
-    private final AppUserService appUserService;
-
-    public NoteController(NoteService noteService, AppUserService appUserService) {
-        this.noteService = noteService;
-        this.appUserService = appUserService;
-    }
+    private NoteService noteService;
 
     @GetMapping
     public List<Note> getAllNotes() {
@@ -32,13 +24,6 @@ public class NoteController {
 
     @PostMapping(value = "/add", consumes = "application/json")
     public ResponseEntity<String> addNote(@RequestBody Note note) {
-        note.setAuthor(appUserService.getCurrentAuthenticatedUser().getId());
-        Note isSaved = noteService.saveNote(note);
-
-        if (isSaved != null) {
-            return ResponseEntity.ok("Note successfully added.");
-        } else {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to add note.");
-        }
+        return noteService.addNote(note);
     }
 }

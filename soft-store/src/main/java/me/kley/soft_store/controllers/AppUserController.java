@@ -21,7 +21,6 @@ public class AppUserController {
 
     @GetMapping("/{id}")
     public ResponseEntity<AppUser> getAppUserById(@PathVariable Long id) {
-        Optional<AppUser> appUser = appUserService.findById(id);
-        return appUser.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+        return appUserService.getAppUserById(id);
     }
 }

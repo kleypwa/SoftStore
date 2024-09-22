@@ -22,10 +22,6 @@ import java.util.Optional;
 public class ToyController {
     @Autowired
     private ToyService toyService;
-    @Autowired
-    private MarketRepository marketRepository;
-
-    private static final String UPLOAD_DIR = "src/main/resources/static/images/";
 
     @GetMapping("/api/toys")
     public List<Toy> getToys(
@@ -50,33 +46,6 @@ public class ToyController {
             @RequestParam("marketId") Long marketId,
             @RequestParam(value = "image", required = false) MultipartFile image) {
 
-        Optional<Market> marketOptional = marketRepository.findById(marketId);
-
-        if (marketOptional.isEmpty()) {
-            return new ResponseEntity<>("Market not found", HttpStatus.BAD_REQUEST);
-        }
-
-        String imageFileName = null;
-        if (image != null && !image.isEmpty()) {
-            try {
-                imageFileName = image.getOriginalFilename();
-                Path path = Paths.get(UPLOAD_DIR + imageFileName);
-                Files.write(path, image.getBytes());
-            } catch (IOException e) {
-                e.printStackTrace();
-                return new ResponseEntity<>("Failed to save image", HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-        }
-
-        Toy toy = new Toy();
-        toy.setName(name);
-        toy.setDescription(description);
-        toy.setCost(cost);
-        toy.setImage(imageFileName);
-        toy.setMarket(marketOptional.get());
-
-        toyService.saveToy(toy);
-
-        return new ResponseEntity<>("Toy created successfully", HttpStatus.CREATED);
+        return toyService.createToy(name, description, cost, marketId, image);
     }
 }

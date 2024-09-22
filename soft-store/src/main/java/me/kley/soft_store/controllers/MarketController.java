@@ -14,29 +14,27 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/api/markets")
+@RequestMapping
 public class MarketController {
     @Autowired
     private MarketService marketService;
 
-    @GetMapping
+    @GetMapping("/markets")
+    public String markets() {
+        return "markets";
+    }
+    @GetMapping("/api/markets")
     public List<Market> getAllMarkets() {
         return marketService.findAll();
     }
 
-    @GetMapping("/{marketId}/toys")
+    @GetMapping("/api/markets/{marketId}/toys")
     public Set<Toy> getToys(@PathVariable Long marketId) {
         return marketService.getToysForMarket(marketId);
     }
 
-    @PostMapping
+    @PostMapping("/api/markets")
     public ResponseEntity<String> createMarket(@RequestBody MarketRequest marketRequest) {
-        Market market = new Market();
-        market.setName(marketRequest.getName());
-        market.setDescription(marketRequest.getDescription());
-
-        marketService.saveMarket(market);
-
-        return new ResponseEntity<>("Market created successfully", HttpStatus.CREATED);
+        return marketService.createMarket(marketRequest);
     }
 }

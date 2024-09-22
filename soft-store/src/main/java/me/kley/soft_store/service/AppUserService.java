@@ -4,12 +4,15 @@ import lombok.AllArgsConstructor;
 import me.kley.soft_store.models.AppUser;
 import me.kley.soft_store.repository.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -18,7 +21,9 @@ import java.util.Optional;
 @AllArgsConstructor
 public class AppUserService implements UserDetailsService {
     @Autowired
-    AppUserRepository appUserRepository;
+    private AppUserRepository appUserRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -43,7 +48,13 @@ public class AppUserService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found with username: " + username));
     }
 
-    public Optional<AppUser> findById(Long id) {
-        return appUserRepository.findById(id);
+    public AppUser createUser(AppUser user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        return appUserRepository.save(user);
+    }
+
+    public ResponseEntity<AppUser> getAppUserById(Long id) {
+        Optional<AppUser> appUser = appUserRepository.findById(id);
+        return appUser.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 }
