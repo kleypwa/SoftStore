@@ -16,11 +16,6 @@ public class BucketController {
     @Autowired
     private BucketService bucketService;
 
-    @GetMapping("/bucket")
-    public String bucket() {
-        return "bucket";
-    }
-
     @GetMapping("/api/bucket")
     public List<ToyWithCountDTO> getToysForCurrentUserBucket() {
         return bucketService.getToysForCurrentUserBucket();

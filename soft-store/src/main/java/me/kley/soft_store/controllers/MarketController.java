@@ -19,10 +19,6 @@ public class MarketController {
     @Autowired
     private MarketService marketService;
 
-    @GetMapping("/markets")
-    public String markets() {
-        return "markets";
-    }
     @GetMapping("/api/markets")
     public List<Market> getAllMarkets() {
         return marketService.findAll();

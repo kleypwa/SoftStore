@@ -16,16 +16,6 @@ public class RegistrationController {
     @Autowired
     private AppUserService appUserService;
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
-
-    @GetMapping("/signup")
-    public String signup() {
-        return "signup";
-    }
-
     @PostMapping(value = "/signup", consumes = "application/json")
     public AppUser createUser(@RequestBody AppUser user) {
         return appUserService.createUser(user);

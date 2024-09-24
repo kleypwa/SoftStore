@@ -11,6 +11,21 @@ public class ContentController {
         return "home";
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @GetMapping("/signup")
+    public String signup() {
+        return "signup";
+    }
+
+    @GetMapping("/markets")
+    public String markets() {
+        return "markets";
+    }
+
     @GetMapping("/catalog")
     public String catalog() {
         return "catalog";
@@ -19,5 +34,10 @@ public class ContentController {
     @GetMapping("/cabinet")
     public String cabinet() {
         return "cabinet";
+    }
+
+    @GetMapping("/bucket")
+    public String bucket() {
+        return "bucket";
     }
 }
