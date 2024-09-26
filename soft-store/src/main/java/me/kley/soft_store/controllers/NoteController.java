@@ -2,10 +2,8 @@ package me.kley.soft_store.controllers;
 
 
 import me.kley.soft_store.models.Note;
-import me.kley.soft_store.service.AppUserService;
 import me.kley.soft_store.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
